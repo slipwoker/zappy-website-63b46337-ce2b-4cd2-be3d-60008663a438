@@ -5,33 +5,33 @@
 ## Pages
 
 ### בית
-https://insulator-lelo-hafsaka.zappy5.app
+https://example.com
 זקוקים לאינסטלטור עכשיו? שירות חירום זמין 24 שעות ביממה, 7 ימים בשבוע. תיקון נזילות, פתיחת סתימות ושירותי אינסטלציה מקצועיים. התקשרו עכשיו!
 
 ### שירותים
-https://insulator-lelo-hafsaka.zappy5.app/services
+https://example.com/services
 תיקון נזילות מים דחוף, פתיחת סתימות, החלפת אסלות וברזים, שדרוג מערכות מים וביוב. אינסטלטור חירום זמין גם בסופ״ש. שירות מהיר ואמין!
 
 ### אודות
-https://insulator-lelo-hafsaka.zappy5.app/about
+https://example.com/about
 ניסיון רב שנים בתיקוני אינסטלציה דחופים, זמינות מלאה 24 שעות, ושירות אמין שעליו אפשר לסמוך. הכירו את הצוות המקצועי שלנו ואת הערכים שלנו.
 
 ### צור קשר
-https://insulator-lelo-hafsaka.zappy5.app/contact
+https://example.com/contact
 נזילה? סתימה? בעיית אינסטלציה דחופה? אנחנו כאן בשבילכם 24/7. התקשרו עכשיו לשירות מהיר ומקצועי. אינסטלטור חירום זמין גם בסופי שבוע וחגים!
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://insulator-lelo-hafsaka.zappy5.app/privacy
+https://example.com/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://insulator-lelo-hafsaka.zappy5.app/terms
+https://example.com/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://insulator-lelo-hafsaka.zappy5.app/accessibility
+https://example.com/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
@@ -43,5 +43,5 @@ Information about WCAG compliance and accessibility features.
 
 # Additional Resources
 
-- **Sitemap**: https://insulator-lelo-hafsaka.zappy5.app/sitemap.xml
-- **Robots.txt**: https://insulator-lelo-hafsaka.zappy5.app/robots.txt
+- **Sitemap**: https://example.com/sitemap.xml
+- **Robots.txt**: https://example.com/robots.txt
