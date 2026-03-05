@@ -911,6 +911,335 @@
   }
 }
 </style>
+
+<style data-zappy-section-v2-css="true">
+/* V2 Regenerated Section CSS */
+.index-hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  background-color: #070A10;
+  isolation: isolate;
+}
+
+/* Background Image Layer */
+.index-hero-section .hero-bg-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.index-hero-section .hero-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: contrast(1.05) saturate(1.1);
+}
+
+/* Gradient Scrim Overlay for Text Legibility */
+.index-hero-section .hero-scrim-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background-image: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.72) 55%, rgba(7,10,16,0.92) 100%);
+}
+
+/* Decorative Light Beams */
+.index-hero-section .hero-light-beams {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Hero Content Overlay */
+.index-hero-section .hero-content-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 140px 32px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.index-hero-section .hero-content-container {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Emergency Badge */
+.index-hero-section .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(180deg, rgba(255,210,61,0.18) 0%, rgba(255,210,61,0.08) 100%);
+  border: 1px solid rgba(255,210,61,0.35);
+  border-radius: 999px;
+  color: #FFD23D;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 28px rgba(255,210,61,0.25), 0 14px 38px rgba(0,0,0,0.45);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.index-hero-section .hero-badge svg {
+  color: #FFD23D;
+  filter: drop-shadow(0 0 8px rgba(255,210,61,0.6));
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 28px rgba(255,210,61,0.25), 0 14px 38px rgba(0,0,0,0.45); }
+  50% { box-shadow: 0 0 38px rgba(255,210,61,0.45), 0 14px 38px rgba(0,0,0,0.45); }
+}
+
+/* Main Headline */
+.index-hero-section .hero-headline {
+  font-family: 'Rubik', sans-serif;
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--text-light);
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 10px 28px rgba(0,0,0,0.75), 0 0 40px rgba(0,212,255,0.18);
+}
+
+/* Supporting Subtitle */
+.index-hero-section .hero-subtitle {
+  font-family: 'Heebo', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-light);
+  text-align: center;
+  margin: 0;
+  opacity: 0.92;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.65);
+}
+
+/* Trust Points List */
+.index-hero-section .hero-trust-points {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.index-hero-section .hero-trust-points li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  color: var(--text-light);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: right;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
+}
+
+.index-hero-section .hero-trust-points li:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+}
+
+.index-hero-section .hero-trust-points li svg {
+  flex-shrink: 0;
+  color: #00D4FF;
+  filter: drop-shadow(0 0 8px rgba(0,212,255,0.4));
+}
+
+.index-hero-section .hero-trust-points li span {
+  flex: 1;
+  text-align: right;
+}
+
+/* CTA Buttons Group */
+.index-hero-section .hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.index-hero-section .btn-primary,
+.index-hero-section .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-family: 'Heebo', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+  border: 1px solid rgba(255,255,255,0.18);
+  cursor: pointer;
+}
+
+.index-hero-section .btn-emergency {
+  background: linear-gradient(180deg, #12C05A 0%, #0A8E41 100%);
+  color: var(--text-light);
+  box-shadow: 0 14px 38px rgba(0,230,118,0.22), 0 18px 60px rgba(0,0,0,0.55);
+}
+
+.index-hero-section .btn-emergency:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 48px rgba(0,230,118,0.32), 0 22px 70px rgba(0,0,0,0.65);
+  filter: brightness(1.08);
+}
+
+.index-hero-section .btn-whatsapp {
+  background: linear-gradient(180deg, #25D366 0%, #1DA851 100%);
+  color: var(--text-light);
+  box-shadow: 0 14px 38px rgba(37,211,102,0.22), 0 18px 60px rgba(0,0,0,0.55);
+}
+
+.index-hero-section .btn-whatsapp:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 48px rgba(37,211,102,0.32), 0 22px 70px rgba(0,0,0,0.65);
+  filter: brightness(1.08);
+}
+
+.index-hero-section .btn-primary svg,
+.index-hero-section .btn-secondary svg {
+  flex-shrink: 0;
+}
+
+/* Phone Number Display */
+.index-hero-section .hero-phone-display {
+  margin-top: 24px;
+  padding: 20px 32px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.45);
+}
+
+.index-hero-section .phone-number-link {
+  font-family: 'Rubik', monospace;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: #FFD23D;
+  text-decoration: none;
+  text-shadow: 0 10px 28px rgba(0,0,0,0.55), 0 0 24px rgba(255,210,61,0.35);
+  transition: color 220ms ease, text-shadow 220ms ease;
+}
+
+.index-hero-section .phone-number-link:hover {
+  color: #FFE066;
+  text-shadow: 0 10px 28px rgba(0,0,0,0.55), 0 0 34px rgba(255,210,61,0.55);
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+  .index-hero-section .hero-content-wrapper {
+    padding: 120px 16px 60px;
+  }
+
+  .index-hero-section .hero-headline {
+    font-size: 36px;
+    line-height: 1.1;
+  }
+
+  .index-hero-section .hero-subtitle {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .index-hero-section .hero-badge {
+    font-size: 11px;
+    padding: 8px 16px;
+  }
+
+  .index-hero-section .hero-trust-points {
+    gap: 10px;
+  }
+
+  .index-hero-section .hero-trust-points li {
+    padding: 12px 16px;
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  .index-hero-section .hero-trust-points li svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .index-hero-section .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .index-hero-section .btn-primary,
+  .index-hero-section .btn-secondary {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
+  .index-hero-section .hero-phone-display {
+    padding: 16px 24px;
+    margin-top: 20px;
+  }
+
+  .index-hero-section .phone-number-link {
+    font-size: 24px;
+  }
+}
+</style>
     <link rel="stylesheet" href="/styles.css">
 
     <style id="zappy-dropdown-submenu-styles">
@@ -999,79 +1328,92 @@
 </nav>
   
   <main>
-    <section class="index-hero-section" data-layout-spec="בית-hero" data-hero-type="fullscreen-scrim" id="zappy-section-0" style="filter: brightness(0.75)">
-  <!-- Full-bleed background image -->
-  <img data-hero-bg="true" data-placeholder="index-hero-bg" data-context="Cinematic night scene of a professional Israeli plumber arriving at an emergency call - dramatic blue-tinted lighting, modern work van with glowing headlights parked in front of a residential building at night, plumber in clean uniform carrying professional toolbox, sense of urgency and reliability, high contrast lighting with neon accents, premium emergency service aesthetic" data-preserve-bg="0" width="1920" height="1080" src="/assets/site-index-hero-bg.webp" alt="אינסטלטור מקצועי מגיע לקריאת חירום בלילה" class="index-hero-section__bg-image zappy-editable-image" data-element-type="image" data-element-id="img-1772702235498-t9l6etyka" data-resize-handler-attached="true">
-  
-  <!-- Scrim overlay for text legibility -->
-  <div class="index-hero-section__scrim" aria-hidden="true"></div>
-  
-  <!-- Hero content overlay group (START-aligned, vertically centered) -->
-  <div class="index-hero-section__overlay-content">
-    <h1 class="index-hero-section__headline">אינסטלטור ללא הפסקה</h1>
-    <h3 class="index-hero-section__subheadline">מגיעים מהר, עובדים נקי, זמינים 24/7</h3>
-    
-    <!-- Value bullets -->
-    <ul class="index-hero-section__value-list">
-      <li class="index-hero-section__value-item">
-        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__bullet-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"></circle>
-          <path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <section class="index-hero-section" data-layout-spec="בית-hero" data-hero-type="fullscreen-card" data-zappy-section="true">
+  <!-- Background Image Layer -->
+  <div class="hero-bg-wrapper">
+    <div class="hero-bg-image" role="img" aria-label="אינסטלטור מקצועי מגיע לקריאת חירום בלילה" style="background-image: url('assets/site-index-hero-bg.webp');  background-size: cover; background-position: center;"></div>
+  </div>
+
+  <!-- Gradient Scrim Overlay for Text Legibility -->
+  <div class="hero-scrim-overlay" aria-hidden="true"></div>
+
+  <!-- Hero Content Overlay -->
+  <div class="hero-content-wrapper">
+    <div class="hero-content-container">
+      <!-- Emergency Badge -->
+      <div class="hero-badge">
+        <svg data-element-type="icon" data-icon-type="svg" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="currentColor"></path>
         </svg>
-        <span>שקיפות מלאה בזמני הגעה</span>
-      </li>
-      <li class="index-hero-section__value-item">
-        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__bullet-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"></circle>
-          <path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-        <span>עבודה נקייה עם כבוד לנכס</span>
-      </li>
-      <li class="index-hero-section__value-item">
-        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__bullet-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"></circle>
-          <path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-        <span>תמחור ברור לפני תחילת העבודה</span>
-      </li>
-    </ul>
-    
-    <!-- Hotline number (monospace) -->
-    <div class="index-hero-section__hotline" style="text-align: center !important; display: flex !important; justify-content: center !important; align-items: flex-start !important; width: 100% !important;">
-      <a href="/contact" class="index-hero-section__hotline-link btn btn-primary" data-native-element="true" data-element-id="btn-1772702253546-l6366xsiv" data-element-type="button" style="outline: none; border-color: transparent !important; color: rgb(255, 255, 255) !important; background-color: transparent !important; background-image: linear-gradient(135deg, rgb(251, 146, 60), rgb(239, 68, 68)) !important;">[business_phone]</a>
-    </div>
-    
-    <!-- CTA buttons row -->
-    <div class="index-hero-section__cta-row" style="text-align: center !important; display: flex !important; justify-content: center !important; align-items: flex-start !important; width: 100% !important;">
-      <a href="0552560060" class="index-hero-section__btn index-hero-section__btn--primary btn btn-primary" data-element-type="button" data-element-id="btn-1772702235478-anqvv9iwd" data-native-element="true" style="outline: none; border-color: transparent !important; color: rgb(255, 255, 255) !important; background-color: transparent !important; background-image: linear-gradient(135deg, rgb(251, 146, 60), rgb(239, 68, 68)) !important;">
-        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" fill="currentColor"></path>
-        </svg>
-        התקשרו עכשיו
-      </a>
-      <a href="https://wa.me/972552560060" target="_blank" rel="noopener noreferrer" class="index-hero-section__btn index-hero-section__btn--secondary" data-element-type="button" data-element-id="btn-1772702235478-wf8jsvr7w" data-native-element="true">
-        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"></path>
-        </svg>
-        WhatsApp
-      </a>
+        <span>זמינים עכשיו</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="hero-headline">אינסטלטור ללא הפסקה</h1>
+
+      <!-- Supporting Subtitle -->
+      <h3 class="hero-subtitle">מגיעים מהר, עובדים נקי, זמינים 24/7</h3>
+
+      <!-- Trust Points with Icons -->
+      <ul class="hero-trust-points">
+        <li>
+          <svg data-element-type="icon" data-icon-type="svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"></path>
+          </svg>
+          <span>שקיפות מלאה בזמני הגעה</span>
+        </li>
+        <li>
+          <svg data-element-type="icon" data-icon-type="svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 11L12 14L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span>עבודה נקייה עם כבוד לנכס</span>
+        </li>
+        <li>
+          <svg data-element-type="icon" data-icon-type="svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span>תמחור ברור לפני תחילת העבודה</span>
+        </li>
+      </ul>
+
+      <!-- CTA Buttons Group -->
+      <div class="hero-cta-group">
+        <a href="0552560060" class="btn-primary btn-emergency">
+          <svg data-element-type="icon" data-icon-type="svg" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" fill="currentColor"></path>
+          </svg>
+          <span>התקשרו עכשיו</span>
+        </a>
+        <a href="https://wa.me/972552560060" class="btn-secondary btn-whatsapp" target="_blank" rel="noopener">
+          <svg data-element-type="icon" data-icon-type="svg" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"></path>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- Phone Number Display -->
+      <div class="hero-phone-display">
+        <a href="/contact" class="phone-number-link">[business_phone]</a>
+      </div>
     </div>
   </div>
-  
-  <!-- Bottom divider: smooth gradient fade-to-solid with subtle wave texture -->
-  <div class="index-hero-section__divider-wrapper">
-    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="index-hero-fade-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" style="stop-color:rgba(7,10,16,0);stop-"></stop>
-          <stop offset="60%" style="stop-color:rgba(7,10,16,0.5);stop-opacity:1"></stop>
-          <stop offset="100%" style="stop-color:#070A10;stop-opacity:1"></stop>
-        </linearGradient>
-      </defs>
-      <path d="M0,120 L0,60 Q100,55 200,62 T400,58 Q500,62 600,55 T800,60 Q900,58 1000,62 T1200,58 L1200,120 Z" fill="#070A10"></path>
-      <path d="M0,120 L0,75 Q150,72 300,78 T600,74 Q750,78 900,72 T1200,75 L1200,120 Z" fill="#070A10" opacity="0.3"></path>
-    </svg>
-  </div>
+
+  <!-- Decorative Light Beams (Background Only) -->
+  <svg class="hero-light-beams" data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="beam1" cx="30%" cy="20%">
+        <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:0.18"></stop>
+        <stop offset="100%" style="stop-color:#00D4FF;stop-opacity:0"></stop>
+      </radialGradient>
+      <radialGradient id="beam2" cx="70%" cy="80%">
+        <stop offset="0%" style="stop-color:#8A2EFF;stop-opacity:0.14"></stop>
+        <stop offset="100%" style="stop-color:#8A2EFF;stop-opacity:0"></stop>
+      </radialGradient>
+    </defs>
+    <ellipse cx="360" cy="160" rx="400" ry="300" fill="url(#beam1)"></ellipse>
+    <ellipse cx="840" cy="640" rx="350" ry="280" fill="url(#beam2)"></ellipse>
+  </svg>
 </section>
 
 <section class="index-services-section" data-layout-spec="בית-services">
