@@ -6853,6 +6853,9 @@ nav.navbar .sub-menu li a:hover { color: var(--nav-text-hover, #ADE8F4) !importa
   }
 }
 
+/* Added Component Styles */
+
+
 /* ========== RTL MOBILE NAVBAR FIX (zappy-rtl-mobile-fix) ========== */
 /* High-specificity rules to ensure RTL positioning wins over any [lang="en"] conflicts */
 /* For RTL sites: hamburger on RIGHT, phone on LEFT (mirror of LTR layout) */
