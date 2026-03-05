@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>למה לבחור באינסטלטור שלעולם לא נופל — אינסלטור ללא הפסקה</title>
+    <meta name="description" content="ניסיון רב שנים בתיקוני אינסטלציה דחופים, זמינות מלאה 24 שעות, ושירות אמין שעליו אפשר לסמוך. הכירו את הצוות המקצועי שלנו ואת הערכים שלנו.">
+    <meta name="keywords" content="אינסטלטור מנוסה, אינסטלטור אמין, שירות אינסטלציה מקצועי, אינסטלטור זמין 24 שעות, צוות אינסטלטורים">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: '63b46337-ce2b-4cd2-be3d-60008663a438',
+    apiUrl: 'https://api.zappy5.com/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        trackEvent('click', {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        });
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        trackEvent('navigation', {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        });
+      }
+    }, true);
+  }
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+    <meta property="og:title" content="למה לבחור באינסטלטור שלעולם לא נופל — אינסלטור ללא הפסקה">
+  <meta property="og:description" content="ניסיון רב שנים בתיקוני אינסטלציה דחופים, זמינות מלאה 24 שעות, ושירות אמין שעליו אפשר לסמוך. הכירו את הצוות המקצועי שלנו ואת הערכים שלנו.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="למה לבחור באינסטלטור שלעולם לא נופל — אינסלטור ללא הפסקה">
+  <meta name="twitter:description" content="ניסיון רב שנים בתיקוני אינסטלציה דחופים, זמינות מלאה 24 שעות, ושירות אמין שעליו אפשר לסמוך. הכירו את הצוות המקצועי שלנו ואת הערכים שלנו.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+    <!-- Mickidum Accessibility Toolbar -->
+    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+
+    <style id="zappy-dropdown-submenu-styles">
+      /* ========== DESKTOP DROPDOWN SUBMENU STYLES ========== */
+      /* Base styles for dropdown submenus - parent must be positioned */
+      .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
+      /* Submenu base - hidden by default */
+      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
+      /* CRITICAL: Desktop hover styles to show dropdown */
+      .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Submenu item styling */
+      .sub-menu li { list-style: none; margin: 0; padding: 0; }
+      .sub-menu a { display: block !important; padding: 10px 16px !important; color: #333 !important; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
+      .sub-menu a:hover { background-color: #f5f5f5; }
+      /* RTL (Hebrew/Arabic) dropdown positioning */
+      [dir="rtl"] .nav-menu .sub-menu, [dir="rtl"] nav .sub-menu, [dir="rtl"] .navbar .sub-menu, html[lang="he"] .nav-menu .sub-menu, html[lang="he"] nav .sub-menu, html[lang="he"] .navbar .sub-menu, html[lang="ar"] .nav-menu .sub-menu, html[lang="ar"] nav .sub-menu, html[lang="ar"] .navbar .sub-menu { left: auto !important; right: 0 !important; }
+      /* Hide empty dropdown menus */
+      .sub-menu:empty, .sub-menu:not(:has(li:not(.zappy-hidden-menu-item))), .sub-menu:not(:has(li)) { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+      /* Desktop: show submenu on Menu Group hover */
+      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Menu Group title styling */
+      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
+      
+      /* ========== MOBILE SUBMENU STYLES ========== */
+      @media (max-width: 768px) {
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; border-radius: 0 !important; }
+        .sub-menu.mobile-expanded { max-height: 500px !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
+        /* Disable hover behavior on mobile */
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; position: relative !important; min-height: 44px !important; }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; min-width: 0 !important; }
+        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; min-width: 0 !important; padding: 0 !important; line-height: inherit !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu, .navbar li:has(.sub-menu) > .sub-menu, #navMenu li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
+        .nav-menu li:has(.sub-menu) > a [class*="chevron"], .nav-menu li:has(.sub-menu) > a [class*="arrow"], .nav-menu li:has(.sub-menu) > a .fa-chevron-down, .nav-menu li:has(.sub-menu) > a .fa-angle-down, nav li:has(.sub-menu) > a [class*="chevron"], nav li:has(.sub-menu) > a [class*="arrow"], #navMenu li:has(.sub-menu) > a [class*="chevron"], #navMenu li:has(.sub-menu) > a [class*="arrow"] { display: none !important; visibility: hidden !important; }
+        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: auto !important; background: transparent !important; border: none !important; cursor: pointer !important; color: var(--text-dark) !important; position: static !important; flex-shrink: 0 !important; align-self: stretch !important; z-index: 2 !important; padding: 0 !important; margin: 0 !important; }
+        .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
+        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; color: var(--text-dark) !important; }
+        .navbar .sub-menu li a, nav.navbar .sub-menu li a, .zappy-products-dropdown .sub-menu a { color: var(--text-dark) !important; }
+      }
+      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
+    </style>
+
+    <style id="zappy-widget-visibility">
+      #mic-access-tool-general-button, .mic-access-tool-general-button,
+      #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+      ._access-icon, #mic-access-tool-box, .mic-access-tool-box,
+      #mic-init-access-tool #mic-access-tool-box, div[id*="mic-access-tool-box"], ._access-menu {
+        display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important;
+      }
+    </style>
+</head>
+<body>
+
+  <nav class="navbar" dir="rtl">
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <svg class="hamburger-icon" width="24" height="24" viewbox="0 0 24 24" fill="none">
+      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+    <svg class="close-icon" width="24" height="24" viewbox="0 0 24 24" fill="none" style="display:none;">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+  </button>
+  
+  <button class="phone-header-btn" aria-label="Call">
+    <svg width="20" height="20" viewbox="0 0 24 24" fill="currentColor">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </button>
+  
+  <div class="nav-container">
+    <div class="nav-brand">
+      <a href="/" class="logo-link">
+        <img src="/assets/business-logo.webp" alt="אינסלטור ללא הפסקה" class="logo">
+      </a>
+    </div>
+    
+    <ul class="nav-menu" id="navMenu"><li><a href="/services">שירותים</a></li><li><a href="/about">אודות</a></li></ul>
+    
+    <div class="nav-cta-container">
+      <a href="/contact" class="nav-cta-btn">צור קשר</a>
+    </div>
+  </div>
+</nav>
+  
+  <main>
+    <section class="about-story-section" data-layout-spec="אודות-story">
+  <div class="about-story-container">
+    <div class="about-story-content">
+      <h2 class="about-story-title">בנוי לזמינות ללא הפסקה</h2>
+      <div class="about-story-text">
+        <p>"אינסטלטור ללא הפסקה" נוסד מתוך הבנה עמוקה שבעיות אינסטלציה לא מחכות לשעות נוחות. אנחנו צוות של מומחים מוסמכים שהקדיש את הקריירה שלו לספק פתרונות מהירים ואמינים בכל שעה, בכל יום. המוכנות שלנו לחירום היא לא רק שירות – זו התחייבות שמושרשת בכל תיקון שאנחנו מבצעים.</p>
+        <p>אנחנו מאמינים שאינסטלציה איכותית צריכה להיות זמינה תמיד, עם גישה יוקרתית שמכבדת את הלקוח ואת הבית שלו. כל קריאה מטופלת בדחיפות מקצועית, עם ציוד מתקדם וידע מעמיק שמבטיח תוצאות ארוכות טווח. אנחנו לא רק מתקנים – אנחנו שומרים על רציפות החיים שלכם.</p>
+      </div>
+      <div class="about-story-metrics">
+        <div class="about-story-metric">
+          <div class="metric-value">12+</div>
+          <div class="metric-label">שנות ניסיון</div>
+        </div>
+        <div class="about-story-metric">
+          <div class="metric-value">24/7</div>
+          <div class="metric-label">זמינות מלאה</div>
+        </div>
+        <div class="about-story-metric">
+          <div class="metric-value">כל הארץ</div>
+          <div class="metric-label">כיסוי שירות</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-story-image-wrapper">
+      <img data-placeholder="about-story-image-1" data-context="Professional Israeli plumber in premium work uniform standing confidently with professional tools, cinematic lighting with subtle cyan and purple rim lighting, dark desaturated background, high-contrast portrait photography, emergency readiness vibe, premium service aesthetic" width="600" height="800" src="/assets/site-about-story-image-1.webp" alt="אינסטלטור מקצועי מוכן לשירות חירום">
+    </div>
+  </div>
+  <div class="about-story-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewbox="0 0 1200 80" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,80 L0,45 Q60,42 120,47 T240,43 Q300,48 360,42 T480,46 Q540,44 600,49 T720,42 Q780,47 840,44 T960,48 Q1020,43 1080,47 T1200,45 L1200,80 Z" fill="var(--bg-light)"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="about-values-section" data-layout-spec="אודות-values">
+  <div class="about-values-container">
+    <div class="about-values-header">
+      <h2>העקרונות שמאחורי כל שיחה</h2>
+      <p>כל פעולה שלנו מונחית על ידי ערכים ברורים שמבטיחים שירות יוצא דופן, שקיפות מלאה ומקצועיות ללא פשרות. אנחנו לא רק מגיעים במהירות – אנחנו מגיעים עם התחייבות לעבודה נכונה, כבוד לרכושכם ויחס אישי שבונה אמון לטווח ארוך.</p>
+    </div>
+
+    <div class="about-values-grid">
+      <article class="value-card">
+        <div class="value-icon-wrapper">
+          <svg data-element-type="icon" data-icon-type="svg" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+          </svg>
+        </div>
+        <h3>מהירות עם דיוק</h3>
+        <p>אנחנו מגיעים במהירות שיא, אבל לא על חשבון האיכות. כל תיקון מבוצע בקפידה מקסימלית, עם כלים מקצועיים ופתרון שמחזיק לטווח ארוך. אצלנו מהירות פירושה יעילות – לא קיצורי דרך.</p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-icon-wrapper">
+          <svg data-element-type="icon" data-icon-type="svg" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"></path>
+            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" fill="currentColor"></path>
+            <circle cx="12" cy="12" r="2" fill="currentColor"></circle>
+          </svg>
+        </div>
+        <h3>שקיפות מלאה</h3>
+        <p>אין הפתעות, אין עלויות נסתרות. אנחנו מסבירים בדיוק מה הבעיה, מה הפתרון ומה המחיר – לפני שמתחילים לעבוד. אתם מקבלים הערכת מחיר הוגנת ומפורטת, ואנחנו עומדים בה.</p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-icon-wrapper">
+          <svg data-element-type="icon" data-icon-type="svg" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3>כבוד לרכוש</h3>
+        <p>הבית שלכם הוא המקום הכי חשוב. אנחנו מתייחסים אליו בכבוד מקסימלי – עובדים בניקיון, מגנים על רהיטים ורצפות, ומשאירים את המקום מסודר יותר ממה שמצאנו. האינסטלציה תתוקן, והבית יישאר שלכם.</p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-icon-wrapper">
+          <svg data-element-type="icon" data-icon-type="svg" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"></circle>
+            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <h3>אמינות לטווח ארוך</h3>
+        <p>אנחנו לא פותרים רק את הבעיה של היום – אנחנו בונים קשר לשנים. עבודה איכותית, אחריות מלאה על כל תיקון, וזמינות תמידית לכל שאלה או בעיה עתידית. אצלנו אתם יודעים שיש על מי לסמוך.</p>
+      </article>
+    </div>
+  </div>
+
+  <div class="about-values-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewbox="0 0 1200 80" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="divider-gradient-about-values" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:var(--accent);stop-opacity:0.4"></stop>
+          <stop offset="50%" style="stop-color:var(--accent);stop-opacity:0.7"></stop>
+          <stop offset="100%" style="stop-color:var(--accent);stop-opacity:0.4"></stop>
+        </linearGradient>
+      </defs>
+      <path d="M0,80 L0,40 L1200,20 L1200,80 Z" fill="#070A10"></path>
+      <path d="M0,40 L1200,20" stroke="url(#divider-gradient-about-values)" stroke-width="2" fill="#070A10"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="about-credentials-section" data-layout-spec="אודות-credentials">
+  <div class="about-credentials-container">
+    <h2 class="about-credentials-title">אמון שחשוב במצבי חירום</h2>
+    <div class="about-credentials-grid">
+      <div class="about-credentials-card">
+        <div class="about-credentials-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 4L28.5 17.5H42.5L31.5 25.5L36 39L24 31L12 39L16.5 25.5L5.5 17.5H19.5L24 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" fill="none"></circle>
+          </svg>
+        </div>
+        <h3 class="about-credentials-card-title">רישוי וביטוח מלא</h3>
+        <p class="about-credentials-card-text">כל אינסטלטור מבוטח ומורשה ע"י משרד העבודה, עם כיסוי מקיף לכל עבודה</p>
+      </div>
+      <div class="about-credentials-card">
+        <div class="about-credentials-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 8V24L32 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2" fill="none"></circle>
+            <path d="M8 24H4M44 24H40M24 8V4M24 44V40" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <h3 class="about-credentials-card-title">בטיחות ונקיון מקסימלי</h3>
+        <p class="about-credentials-card-text">פרוטוקול קפדני של ניקיון אתר העבודה, שימוש בכלים מחוטאים וציוד מגן תקני</p>
+      </div>
+      <div class="about-credentials-card">
+        <div class="about-credentials-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="12" width="32" height="28" rx="2" stroke="currentColor" stroke-width="2" fill="none"></rect>
+            <path d="M8 20H40" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            <path d="M16 28H24M16 34H28" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            <circle cx="34" cy="31" r="2" fill="currentColor"></circle>
+          </svg>
+        </div>
+        <h3 class="about-credentials-card-title">הצעת מחיר שקופה</h3>
+        <p class="about-credentials-card-text">מחיר סופי ברור מראש, ללא הפתעות או תוספות לא צפויות בסוף העבודה</p>
+      </div>
+      <div class="about-credentials-card">
+        <div class="about-credentials-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 24L20 30L34 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M24 4C19.5817 4 15.2647 5.31387 11.5558 7.78249C7.84693 10.2511 4.9108 13.7717 3.11118 17.9063C1.31156 22.0409 0.730106 26.6148 1.43015 31.0683C2.1302 35.5218 4.08282 39.6662 7.02944 43.0294" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            <path d="M24 44C28.4183 44 32.7353 42.6861 36.4442 40.2175C40.1531 37.7489 43.0892 34.2283 44.8888 30.0937C46.6884 25.9591 47.2699 21.3852 46.5698 16.9317C45.8698 12.4782 43.9172 8.33384 40.9706 4.97056" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <h3 class="about-credentials-card-title">אימות לאחר השירות</h3>
+        <p class="about-credentials-card-text">בדיקת תקינות מלאה בסיום כל עבודה, עם אחריות מורחבת ותיעוד דיגיטלי</p>
+      </div>
+    </div>
+  </div>
+  <div class="about-credentials-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewbox="0 0 1200 80" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="credentialsDividerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#0B1322;stop-opacity:1"></stop>
+          <stop offset="100%" style="stop-color:#F7F9FC;stop-opacity:1"></stop>
+        </linearGradient>
+      </defs>
+      <path d="M0,80 L0,30 Q100,35 200,28 T400,32 Q500,28 600,35 T800,30 Q900,32 1000,28 T1200,32 L1200,80 Z" fill="var(--bg-light)"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="about-team-section" data-layout-spec="אודות-team">
+  <div class="about-team-container">
+    <div class="about-team-header">
+      <h2 class="about-team-title">אנשי מקצוע שאפשר לסמוך עליהם גם בשעה 2 בלילה</h2>
+      <p class="about-team-subtitle">צוות מיומן ומנוסה שזמין עבורכם בכל שעה, כל יום – כי אינסטלציה לא מכירה שעות עבודה</p>
+    </div>
+    
+    <div class="about-team-grid">
+      <article class="about-team-card">
+        <div class="about-team-card-image-wrapper">
+          <img data-placeholder="about-team-image-1" data-context="Professional Israeli plumber technician in uniform, confident pose, workshop background with plumbing tools, bright professional lighting, premium quality photo" width="400" height="500" src="/assets/site-about-team-image-1.webp" alt="טכנאי ראשי - מומחה אינסטלציה">
+        </div>
+        <div class="about-team-card-content">
+          <h3 class="about-team-card-name">אבי כהן</h3>
+          <p class="about-team-card-role">טכנאי ראשי ומנהל שטח</p>
+          <p class="about-team-card-bio">בעל 15 שנות ניסיון בתחום האינסטלציה, מתמחה בפתרון תקלות מורכבות ובניהול פרויקטים. זמין 24/7 לשיחות חירום ומוביל את הצוות בשטח בכל מצב.</p>
+        </div>
+      </article>
+
+      <article class="about-team-card">
+        <div class="about-team-card-image-wrapper">
+          <img data-placeholder="about-team-image-2" data-context="Professional Israeli female dispatcher coordinator at control center with headset and monitors, emergency operations room, bright modern office lighting" width="400" height="500" src="/assets/site-about-team-image-2.webp" alt="רכזת חירום ותיאום">
+        </div>
+        <div class="about-team-card-content">
+          <h3 class="about-team-card-name">מיכל לוי</h3>
+          <p class="about-team-card-role">רכזת חירום ותיאום</p>
+          <p class="about-team-card-bio">אחראית על מוקד החירום ותיאום הטכנאים בשטח. מבטיחה זמני תגובה מהירים ומעקב צמוד אחר כל קריאה עד לסיום מלא של העבודה.</p>
+        </div>
+      </article>
+
+      <article class="about-team-card">
+        <div class="about-team-card-image-wrapper">
+          <img data-placeholder="about-team-image-3" data-context="Young professional Israeli plumber specialist with tools and equipment, field work setting, natural lighting, action pose fixing pipes" width="400" height="500" src="/assets/site-about-team-image-3.webp" alt="מומחה שטח">
+        </div>
+        <div class="about-team-card-content">
+          <h3 class="about-team-card-name">יוסי דהן</h3>
+          <p class="about-team-card-role">מומחה שטח ותיקונים</p>
+          <p class="about-team-card-bio">טכנאי מוסמך עם התמחות בתיקוני חירום ונזילות. מגיע מהר, עובד מהר, ופותר את הבעיה בפעם הראשונה – זו המוטו שלו.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+  </main>
+  
+  <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-column footer-company">
+        <img src="/assets/business-logo.webp" alt="אינסלטור ללא הפסקה" class="logo">
+        <p class="company-description">שירותי אינסטלציה מקצועיים ואמינים זמינים עבורכם 24/7</p>
+      </div>
+      
+      <div class="footer-column footer-links">
+        <h3 class="footer-heading">קישורים מהירים</h3>
+        <ul class="footer-nav">
+          <li><a href="/services">שירותים</a></li>
+          <li><a href="/about">אודות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column footer-contact">
+        <h3 class="footer-heading">יצירת קשר</h3>
+        <ul class="contact-list">
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:[business_email]">[business_email]</a>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <a href="tel:[business_phone]">[business_phone]</a>
+          </li>
+          <li><a href="/"><i class="fas fa-map-marker-alt"></i>
+            <span>[business_address]</span></a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column footer-social">
+        <h3 class="footer-heading">עקבו אחרינו</h3>
+        <div class="social-links">
+          <a href="[facebook_handle]" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="[instagram_handle]" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="[whatsapp_handle]" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <div class="copyright">
+          <p>© 2026 אינסלטור ללא הפסקה. כל הזכויות שמורות.</p>
+        </div>
+        <div class="footer-legal">
+          <a href="/privacy">מדיניות פרטיות</a>
+          <span class="separator">|</span>
+          <a href="/terms">תנאי שימוש</a>
+          <span class="separator">|</span>
+          <a href="/accessibility">נגישות</a>
+          <span class="separator">|</span>
+          <a href="https://zappy5.com" target="_blank" class="zappy-attribution">נוצר באמצעות Zappy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+  <a href="https://wa.me/[whatsapp_handle]" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <div data-integration="accessibility:toolbar"></div>
+
+    <script src="/script.js"></script>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
+    })();
+    </script>
+
+    <script id="zappy-navbar-scroll-effect">
+    (function(){var nb=document.querySelector('nav.navbar,.navbar:not(.zappy-catalog-menu)');var cm=document.querySelector('.zappy-catalog-menu');if(!nb)return;var fb='rgba(15,17,21,0.85)';var th=60;nb.style.transition='background 0.3s ease,backdrop-filter 0.3s ease,-webkit-backdrop-filter 0.3s ease,box-shadow 0.3s ease';if(cm)cm.style.transition='background 0.3s ease,backdrop-filter 0.3s ease,-webkit-backdrop-filter 0.3s ease';function onS(){var y=window.scrollY||window.pageYOffset;if(y>th){nb.style.background=fb;nb.style.backdropFilter='blur(12px)';nb.style.webkitBackdropFilter='blur(12px)';nb.style.boxShadow='0 2px 16px rgba(0,0,0,0.12)';if(cm){cm.style.background=fb;cm.style.backdropFilter='blur(12px)';cm.style.webkitBackdropFilter='blur(12px)';}}else{nb.style.background='transparent';nb.style.backdropFilter='none';nb.style.webkitBackdropFilter='none';nb.style.boxShadow='none';if(cm){cm.style.background='transparent';cm.style.backdropFilter='none';cm.style.webkitBackdropFilter='none';}}}window.addEventListener('scroll',onS,{passive:true});onS();})();
+    </script>
+</body>
+</html>
