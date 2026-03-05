@@ -1,47 +1,59 @@
-# Business — Generative Engine Optimization Map
+# אינסלטור ללא הפסקה — Generative Engine Optimization Map
+
+> תעשי לי דף נחיתה לעסק שלי אינסטלטור
 
 ---
 
 ## Pages
 
 ### בית
-https://example.com
+https://insulator-lelo-hafsaka.zappy5.app
 זקוקים לאינסטלטור עכשיו? שירות חירום זמין 24 שעות ביממה, 7 ימים בשבוע. תיקון נזילות, פתיחת סתימות ושירותי אינסטלציה מקצועיים. התקשרו עכשיו!
 
 ### שירותים
-https://example.com/services
+https://insulator-lelo-hafsaka.zappy5.app/services
 תיקון נזילות מים דחוף, פתיחת סתימות, החלפת אסלות וברזים, שדרוג מערכות מים וביוב. אינסטלטור חירום זמין גם בסופ״ש. שירות מהיר ואמין!
 
 ### אודות
-https://example.com/about
+https://insulator-lelo-hafsaka.zappy5.app/about
 ניסיון רב שנים בתיקוני אינסטלציה דחופים, זמינות מלאה 24 שעות, ושירות אמין שעליו אפשר לסמוך. הכירו את הצוות המקצועי שלנו ואת הערכים שלנו.
 
 ### צור קשר
-https://example.com/contact
+https://insulator-lelo-hafsaka.zappy5.app/contact
 נזילה? סתימה? בעיית אינסטלציה דחופה? אנחנו כאן בשבילכם 24/7. התקשרו עכשיו לשירות מהיר ומקצועי. אינסטלטור חירום זמין גם בסופי שבוע וחגים!
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://example.com/privacy
+https://insulator-lelo-hafsaka.zappy5.app/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://example.com/terms
+https://insulator-lelo-hafsaka.zappy5.app/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://example.com/accessibility
+https://insulator-lelo-hafsaka.zappy5.app/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
 
 # Business Context (for LLM understanding)
 
-## About Business
+## About אינסלטור ללא הפסקה
+תעשי לי דף נחיתה לעסק שלי אינסטלטור
+
+## Target Audience
+- בעלי בתים עם בעיות דחופות
+- קבלני שיפוצים
+- בעלי בתים חדשים
+
+## Industry
+שירותי אינסטלציה
+
 ---
 
 # Additional Resources
 
-- **Sitemap**: https://example.com/sitemap.xml
-- **Robots.txt**: https://example.com/robots.txt
+- **Sitemap**: https://insulator-lelo-hafsaka.zappy5.app/sitemap.xml
+- **Robots.txt**: https://insulator-lelo-hafsaka.zappy5.app/robots.txt
