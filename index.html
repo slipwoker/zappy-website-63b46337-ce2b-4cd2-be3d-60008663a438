@@ -469,6 +469,221 @@
   }
 }
 </style>
+
+<style data-zappy-section-v2-css="true">
+/* V2 Regenerated Section CSS */
+.index-stats-section {
+  position: relative;
+  overflow: visible;
+  background-color: #070A10;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(0,212,255,0.10) 0%, rgba(0,212,255,0) 42%),
+    radial-gradient(circle at 85% 35%, rgba(138,46,255,0.12) 0%, rgba(138,46,255,0) 46%),
+    radial-gradient(circle at 45% 85%, rgba(255,210,61,0.10) 0%, rgba(255,210,61,0) 40%);
+  color: var(--text-light);
+  padding: 100px 16px;
+  direction: rtl;
+}
+
+.index-stats-section .index-stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.index-stats-section .index-stats-header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.index-stats-section .index-stats-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--text-light);
+  margin: 0 0 24px 0;
+  text-shadow: 0 0 40px rgba(0,212,255,0.35), 0 0 80px rgba(138,46,255,0.25);
+  letter-spacing: -0.02em;
+}
+
+.index-stats-section .index-stats-description {
+  font-family: 'Heebo', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-light);
+  margin: 0;
+  opacity: 0.85;
+}
+
+.index-stats-section .index-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.index-stats-section .index-stats-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 40px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.index-stats-section .index-stats-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,212,255,0.08) 0%, rgba(138,46,255,0.08) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.index-stats-section .index-stats-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0,212,255,0.3);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.55), 0 0 40px rgba(0,212,255,0.15);
+}
+
+.index-stats-section .index-stats-card:hover::before {
+  opacity: 1;
+}
+
+.index-stats-section .index-stats-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.index-stats-section .index-stats-icon {
+  width: 100%;
+  height: 100%;
+  color: var(--accent);
+  filter: drop-shadow(0 0 20px rgba(0,212,255,0.4));
+}
+
+.index-stats-section .index-stats-number {
+  font-family: 'Rubik', sans-serif;
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 30px rgba(0,212,255,0.3);
+  letter-spacing: -0.03em;
+}
+
+.index-stats-section .index-stats-label {
+  font-family: 'Heebo', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.index-stats-section .index-stats-glow-top,
+.index-stats-section .index-stats-glow-bottom {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.index-stats-section .index-stats-glow-top {
+  top: -300px;
+  right: -200px;
+  background: radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%);
+}
+
+.index-stats-section .index-stats-glow-bottom {
+  bottom: -300px;
+  left: -200px;
+  background: radial-gradient(circle, rgba(138,46,255,0.15) 0%, transparent 70%);
+}
+
+@media (max-width: 768px) {
+  .index-stats-section {
+    padding: 80px 16px;
+  }
+  
+  .index-stats-section .index-stats-title {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+  
+  .index-stats-section .index-stats-description {
+    font-size: 16px;
+  }
+  
+  .index-stats-section .index-stats-header {
+    margin-bottom: 40px;
+  }
+  
+  .index-stats-section .index-stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+    margin-top: 40px;
+  }
+  
+  .index-stats-section .index-stats-card {
+    padding: 32px 20px;
+  }
+  
+  .index-stats-section .index-stats-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 20px;
+  }
+  
+  .index-stats-section .index-stats-number {
+    font-size: 42px;
+    margin-bottom: 8px;
+  }
+  
+  .index-stats-section .index-stats-label {
+    font-size: 14px;
+  }
+  
+  .index-stats-section .index-stats-glow-top,
+  .index-stats-section .index-stats-glow-bottom {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .index-stats-section .index-stats-glow-top {
+    top: -200px;
+    right: -150px;
+  }
+  
+  .index-stats-section .index-stats-glow-bottom {
+    bottom: -200px;
+    left: -150px;
+  }
+}
+</style>
     <link rel="stylesheet" href="/styles.css">
 
     <style id="zappy-dropdown-submenu-styles">
@@ -527,16 +742,16 @@
 
   <nav class="navbar" dir="rtl">
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-    <svg class="hamburger-icon" width="24" height="24" viewbox="0 0 24 24" fill="none">
+    <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
       <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
     </svg>
-    <svg class="close-icon" width="24" height="24" viewbox="0 0 24 24" fill="none" style="display:none;">
+    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none;">
       <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
     </svg>
   </button>
   
   <button class="phone-header-btn" aria-label="Call">
-    <svg width="20" height="20" viewbox="0 0 24 24" fill="currentColor">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
     </svg>
   </button>
@@ -572,21 +787,21 @@
     <!-- Value bullets -->
     <ul class="index-hero-section__value-list">
       <li class="index-hero-section__value-item">
-        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__bullet-icon" width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__bullet-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"></circle>
           <path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
         <span>שקיפות מלאה בזמני הגעה</span>
       </li>
       <li class="index-hero-section__value-item">
-        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__bullet-icon" width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__bullet-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"></circle>
           <path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
         <span>עבודה נקייה עם כבוד לנכס</span>
       </li>
       <li class="index-hero-section__value-item">
-        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__bullet-icon" width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__bullet-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"></circle>
           <path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
@@ -602,13 +817,13 @@
     <!-- CTA buttons row -->
     <div class="index-hero-section__cta-row" style="text-align: center !important; display: flex !important; justify-content: center !important; align-items: flex-start !important; width: 100% !important;">
       <a href="0552560060" class="index-hero-section__btn index-hero-section__btn--primary btn btn-primary" data-element-type="button" data-element-id="btn-1772702235478-anqvv9iwd" data-native-element="true" style="outline: none; border-color: transparent !important; color: rgb(255, 255, 255) !important; background-color: transparent !important; background-image: linear-gradient(135deg, rgb(251, 146, 60), rgb(239, 68, 68)) !important;">
-        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__btn-icon" width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" fill="currentColor"></path>
         </svg>
         התקשרו עכשיו
       </a>
       <a href="https://wa.me/972552560060" target="_blank" rel="noopener noreferrer" class="index-hero-section__btn index-hero-section__btn--secondary" data-element-type="button" data-element-id="btn-1772702235478-wf8jsvr7w" data-native-element="true">
-        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__btn-icon" width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg data-element-type="icon" data-icon-type="svg" class="index-hero-section__btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"></path>
         </svg>
         WhatsApp
@@ -618,13 +833,13 @@
   
   <!-- Bottom divider: smooth gradient fade-to-solid with subtle wave texture -->
   <div class="index-hero-section__divider-wrapper">
-    <svg data-no-icon-edit="true" aria-hidden="true" viewbox="0 0 1200 120" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <lineargradient id="index-hero-fade-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <linearGradient id="index-hero-fade-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" style="stop-color:rgba(7,10,16,0);stop-"></stop>
           <stop offset="60%" style="stop-color:rgba(7,10,16,0.5);stop-opacity:1"></stop>
           <stop offset="100%" style="stop-color:#070A10;stop-opacity:1"></stop>
-        </lineargradient>
+        </linearGradient>
       </defs>
       <path d="M0,120 L0,60 Q100,55 200,62 T400,58 Q500,62 600,55 T800,60 Q900,58 1000,62 T1200,58 L1200,120 Z" fill="#070A10"></path>
       <path d="M0,120 L0,75 Q150,72 300,78 T600,74 Q750,78 900,72 T1200,75 L1200,120 Z" fill="#070A10" opacity="0.3"></path>
@@ -642,7 +857,7 @@
     <div class="index-services-grid">
       <div class="index-service-card">
         <div class="index-service-icon">
-          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 16H24M16 8V24M16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
         </div>
@@ -652,7 +867,7 @@
 
       <div class="index-service-card">
         <div class="index-service-icon">
-          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 4V28M8 12L16 4L24 12M16 28C16 28 22 24 22 18C22 15 20 12 16 12C12 12 10 15 10 18C10 24 16 28 16 28Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
         </div>
@@ -662,7 +877,7 @@
 
       <div class="index-service-card">
         <div class="index-service-icon">
-          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="16" cy="18" rx="8" ry="10" stroke="currentColor" stroke-width="2"></ellipse>
             <path d="M12 10C12 10 13 8 16 8C19 8 20 10 20 10M16 18V22M13 22H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
@@ -673,7 +888,7 @@
 
       <div class="index-service-card">
         <div class="index-service-icon">
-          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="6" y="8" width="20" height="18" rx="2" stroke="currentColor" stroke-width="2"></rect>
             <path d="M10 14H22M10 18H18M16 22L16 26M12 26H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             <path d="M16 4V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
@@ -685,7 +900,7 @@
 
       <div class="index-service-card">
         <div class="index-service-icon">
-          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 6V12M16 12C18 12 20 14 20 16V20C20 22 18 24 16 24C14 24 12 22 12 20V16C12 14 14 12 16 12ZM8 16H12M20 16H24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             <path d="M10 24L14 20M18 20L22 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
           </svg>
@@ -696,7 +911,7 @@
 
       <div class="index-service-card">
         <div class="index-service-icon">
-          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 4L4 10V16C4 23 10 28 16 28C22 28 28 23 28 16V10L16 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             <path d="M16 12V20M12 16L16 20L20 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
@@ -714,68 +929,67 @@
   </div>
 
   <div class="index-services-divider-wrapper">
-    <svg data-no-icon-edit="true" aria-hidden="true" viewbox="0 0 1200 60" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,60 L0,0 L1200,30 L1200,60 Z" fill="#121B2A"></path>
     </svg>
   </div>
 </section>
 
-<section class="index-stats-section" data-layout-spec="בית-stats" data-zappy-section="true" style="background: linear-gradient(180deg, #CAF0F8 0%, #E8F8FF 55%, #CAF0F8 100%); color: #023E8A">
+<section class="index-stats-section" data-layout-spec="בית-stats" data-zappy-section="true">
   <div class="index-stats-container">
-    <div class="index-stats-content">
+    <div class="index-stats-header">
       <h2 class="index-stats-title">בנוי עבור קריאות דחופות</h2>
       <p class="index-stats-description">אנחנו מבינים שכל דקה חשובה כשיש נזילה או תקלה. לכן אנחנו מתמחים במהירות תגובה מקסימלית, עבודה מסודרת ונקייה, ותקשורת שקופה ברורה. אתם מתקשרים – אנחנו כבר בדרך.</p>
     </div>
     
     <div class="index-stats-grid">
       <div class="index-stats-card">
-        <div class="index-stats-icon" data-element-type="icon" data-icon-type="svg">
-          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #023E8A;">
-            <circle cx="12" cy="12" r="10" fill="#023E8A"></circle>
-            <polyline points="12 6 12 12 16 14" fill="#023E8A"></polyline>
+        <div class="index-stats-icon-wrapper">
+          <svg data-element-type="icon" data-icon-type="svg" class="index-stats-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"></circle>
+            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
           </svg>
         </div>
-        <div class="index-stats-number"><span class="index-stats-value">15</span></div>
-        <div class="index-stats-label">דקות זמן תגובה ממוצע</div>
+        <div class="index-stats-number">דקות</div>
+        <div class="index-stats-label">זמן תגובה ממוצע</div>
       </div>
-
+      
       <div class="index-stats-card">
-        <div class="index-stats-icon" data-element-type="icon" data-icon-type="svg">
-          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #023E8A;">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" fill="#023E8A"></rect>
-            <line x1="16" y1="2" x2="16" y2="6" fill="#023E8A"></line>
-            <line x1="8" y1="2" x2="8" y2="6" fill="#023E8A"></line>
-            <line x1="3" y1="10" x2="21" y2="10" fill="#023E8A"></line>
+        <div class="index-stats-icon-wrapper">
+          <svg data-element-type="icon" data-icon-type="svg" class="index-stats-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+            <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
         </div>
-        <div class="index-stats-number"><span class="index-stats-value">24/7</span></div>
+        <div class="index-stats-number">24/7</div>
         <div class="index-stats-label">זמינות מלאה כל השבוע</div>
       </div>
-
+      
       <div class="index-stats-card">
-        <div class="index-stats-icon" data-element-type="icon" data-icon-type="svg">
-          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #023E8A;">
-            <polyline points="20 6 9 17 4 12" fill="#023E8A"></polyline>
+        <div class="index-stats-icon-wrapper">
+          <svg data-element-type="icon" data-icon-type="svg" class="index-stats-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
         </div>
-        <div class="index-stats-number"><span class="index-stats-value">95%</span></div>
+        <div class="index-stats-number">95%</div>
         <div class="index-stats-label">תיקונים באותו יום</div>
       </div>
-
+      
       <div class="index-stats-card">
-        <div class="index-stats-icon" data-element-type="icon" data-icon-type="svg">
-          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #023E8A;">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#023E8A"></polygon>
+        <div class="index-stats-icon-wrapper">
+          <svg data-element-type="icon" data-icon-type="svg" class="index-stats-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
         </div>
-        <div class="index-stats-number"><span class="index-stats-value">4.9</span></div>
+        <div class="index-stats-number">4.9</div>
         <div class="index-stats-label">דירוג שביעות רצון לקוחות</div>
       </div>
     </div>
   </div>
-
-  <div class="index-stats-glow-1"></div>
-  <div class="index-stats-glow-2"></div>
+  
+  <div class="index-stats-glow-top"></div>
+  <div class="index-stats-glow-bottom"></div>
 </section>
 
 <section class="index-testimonials-section" data-layout-spec="בית-testimonials">
@@ -828,12 +1042,12 @@
   </div>
 
   <div class="index-testimonials-divider-wrapper">
-    <svg data-no-icon-edit="true" aria-hidden="true" viewbox="0 0 1200 80" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <lineargradient id="testimonials-divider-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <linearGradient id="testimonials-divider-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" style="stop-color:#070A10;stop-opacity:1"></stop>
           <stop offset="100%" style="stop-color:#F7F9FC;stop-opacity:1"></stop>
-        </lineargradient>
+        </linearGradient>
       </defs>
       <path d="M0,80 L0,42 Q50,38 100,44 T200,40 Q250,44 300,38 T400,42 Q450,40 500,44 T600,38 Q650,42 700,40 T800,44 Q850,38 900,42 T1000,40 Q1050,44 1100,38 T1200,42 L1200,80 Z" fill="var(--bg-light)"></path>
       <path d="M0,42 Q50,38 100,44 T200,40 Q250,44 300,38 T400,42 Q450,40 500,44 T600,38 Q650,42 700,40 T800,44 Q850,38 900,42 T1000,40 Q1050,44 1100,38 T1200,42" fill="var(--bg-light)" stroke="var(--accent)" stroke-width="1" opacity="0.6"></path>
