@@ -1,6 +1,4 @@
-# אינסלטור ללא הפסקה — Generative Engine Optimization Map
-
-> תעשי לי דף נחיתה לעסק שלי אינסטלטור
+# Business — Generative Engine Optimization Map
 
 ---
 
@@ -40,17 +38,7 @@ Information about WCAG compliance and accessibility features.
 
 # Business Context (for LLM understanding)
 
-## About אינסלטור ללא הפסקה
-תעשי לי דף נחיתה לעסק שלי אינסטלטור
-
-## Target Audience
-- בעלי בתים עם בעיות דחופות
-- קבלני שיפוצים
-- בעלי בתים חדשים
-
-## Industry
-שירותי אינסטלציה
-
+## About Business
 ---
 
 # Additional Resources
